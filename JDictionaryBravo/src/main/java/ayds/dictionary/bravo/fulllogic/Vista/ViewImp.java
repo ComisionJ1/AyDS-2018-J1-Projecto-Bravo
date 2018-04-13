@@ -39,26 +39,16 @@ public class ViewImp implements View{
   }
 
   public void showArticle(ArticleModel article){
-    String innerText = textToHtml(article.getTerm(),article.getMeaning());
-    textPane1.setText(innerText);
+    TextConverter textConverter = new TextConvertImp();
+    String innerText = textConverter.textToHtml(article.getTerm(),article.getMeaning());
+    if (controller.isInLocalSource()) {
+      textPane1.setText("[*]"+innerText);
+    } else {
+      textPane1.setText(innerText);
+    }
   }
 
-  private String textToHtml(String term, String text) {
 
-    StringBuilder builder = new StringBuilder();
-
-    builder.append("<font face=\"arial\">");
-
-    String textWithBold = text
-            .replace("'", "`")
-            .replaceAll("(?i)" + term, "<b>" + term +"</b>");
-
-    builder.append(textWithBold);
-
-    builder.append("</font>");
-
-    return builder.toString();
-  }
 
 }
 

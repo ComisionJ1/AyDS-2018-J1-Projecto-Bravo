@@ -10,6 +10,7 @@ public class ControllerImp implements Controller{
     private Repository repository;
     private ArticleModel articleModel;
     private View view;
+    private boolean isInLocalSource;
 
     public ControllerImp(ArticleModel articleModel){
         this.articleModel=articleModel;
@@ -22,11 +23,15 @@ public class ControllerImp implements Controller{
         new Thread(new Runnable() {
             @Override public void run() {
                 ArticleModel article= repository.getArticle(term);
+                isInLocalSource=repository.isInLocalSource();
                 view.showArticle(article);
             }
         }).start();
     }
 
+    public boolean isInLocalSource(){
+        return isInLocalSource;
+    }
     @Override
     public void setArticleView(View view) {
         this.view=view;

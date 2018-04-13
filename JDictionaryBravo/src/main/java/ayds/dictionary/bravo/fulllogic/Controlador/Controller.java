@@ -7,5 +7,6 @@ public interface Controller {
 
     void getArticle(String term);
     void setArticleView(View view);
+    boolean isInLocalSource();
 
 }
