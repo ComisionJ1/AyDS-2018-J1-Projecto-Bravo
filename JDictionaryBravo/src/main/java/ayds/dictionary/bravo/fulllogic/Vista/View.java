@@ -1,9 +1,9 @@
 package ayds.dictionary.bravo.fulllogic.Vista;
 
-import ayds.dictionary.bravo.fulllogic.Modelo.ArticleModel;
+import ayds.dictionary.bravo.fulllogic.Modelo.Article;
 
 public interface View {
 
-    void showArticle(ArticleModel article);
+    void showArticle(Article article);
 
 }

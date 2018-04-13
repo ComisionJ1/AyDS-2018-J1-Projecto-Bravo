@@ -1,8 +1,7 @@
 package ayds.dictionary.bravo.fulllogic.Controlador;
 
-
-import ayds.dictionary.bravo.fulllogic.Modelo.ArticleModelModule;
 import ayds.dictionary.bravo.fulllogic.Vista.*;
+import ayds.dictionary.bravo.fulllogic.Modelo.*;
 
 public class ControllerModule {
 
@@ -21,12 +20,12 @@ public class ControllerModule {
 
         Controller controller = getController();
         View view = openWindowAndGetView(controller);
-        controller.setArticleView(view);
+        controller.setView(view);
 
     }
 
     private Controller getController () {
-        return new ControllerImp(ArticleModelModule.getInstance().getArticleModel());
+        return new ControllerImp(ModelModule.getInstance().getRepository());
     }
 
     private View openWindowAndGetView(Controller controller){

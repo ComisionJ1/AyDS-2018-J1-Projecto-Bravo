@@ -8,21 +8,17 @@ import java.rmi.Remote;
 public class ControllerImp implements Controller{
 
     private Repository repository;
-    private ArticleModel articleModel;
     private View view;
     private boolean isInLocalSource;
 
-    public ControllerImp(ArticleModel articleModel){
-        this.articleModel=articleModel;
-        LocalSource localSource= new LocalSourceImp();
-        RemoteSource remoteSource = new RemoteSourceImp();
-        repository=new Repository(localSource, remoteSource);
+    public ControllerImp(Repository repository){
+        this.repository=repository;
     }
 
     public void getArticle(String term) {
         new Thread(new Runnable() {
             @Override public void run() {
-                ArticleModel article= repository.getArticle(term);
+                Article article= repository.getArticle(term);
                 isInLocalSource=repository.isInLocalSource();
                 view.showArticle(article);
             }
@@ -32,8 +28,8 @@ public class ControllerImp implements Controller{
     public boolean isInLocalSource(){
         return isInLocalSource;
     }
-    @Override
-    public void setArticleView(View view) {
+
+    public void setView(View view) {
         this.view=view;
     }
 

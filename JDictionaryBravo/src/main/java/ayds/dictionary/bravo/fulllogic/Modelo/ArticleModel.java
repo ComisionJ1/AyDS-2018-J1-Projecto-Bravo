@@ -1,1 +1,0 @@
-package ayds.dictionary.bravo.fulllogic.Modelo;public interface ArticleModel {    public String getTerm();    public String getMeaning();}

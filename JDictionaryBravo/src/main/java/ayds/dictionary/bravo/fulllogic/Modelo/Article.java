@@ -1,10 +1,10 @@
 package ayds.dictionary.bravo.fulllogic.Modelo;
 
-public class ArticleModelImp implements ArticleModel{
+public class Article{
     private String term;
     private String meaning;
 
-    public ArticleModelImp(String term, String meaning){
+    public Article(String term, String meaning){
         this.term=term;
         this.meaning=meaning;
     }
@@ -16,5 +16,4 @@ public class ArticleModelImp implements ArticleModel{
     public String getMeaning(){
         return meaning;
     }
-
 }
