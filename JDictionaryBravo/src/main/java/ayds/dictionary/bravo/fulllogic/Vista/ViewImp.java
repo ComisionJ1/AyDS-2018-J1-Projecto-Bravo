@@ -1,7 +1,7 @@
 package ayds.dictionary.bravo.fulllogic.Vista;
 
 import ayds.dictionary.bravo.fulllogic.Controlador.Controller;
-import ayds.dictionary.bravo.fulllogic.Modelo.Article;
+import ayds.dictionary.bravo.fulllogic.Modelo.ArticleModel;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -9,15 +9,17 @@ import java.awt.event.ActionListener;
 
 public class ViewImp implements View{
   private Controller controller;
+  private ArticleModel articleModel;
 
   private JTextField textField1;
   private JButton goButton;
-  private JPanel contentPane;
+  protected JPanel contentPane;
   private JTextPane textPane1;
 
-  public ViewImp(Controller controller){
+  public ViewImp(Controller controller, ArticleModel articleModel){
 
     this.controller=controller;
+
 
     textPane1.setContentType("text/html");
     goButton.addActionListener(new ActionListener() {
@@ -28,13 +30,15 @@ public class ViewImp implements View{
     );
 
     JFrame frame = new JFrame("Online Dictionary");
-    frame.setContentPane(this.contentPane);
+    frame.setContentPane(contentPane);
     frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     frame.pack();
     frame.setVisible(true);
+
+
   }
 
-  public void showArticle(Article article){
+  public void showArticle(ArticleModel article){
     String innerText = textToHtml(article.getTerm(),article.getMeaning());
     textPane1.setText(innerText);
   }
