@@ -25,10 +25,11 @@ public class ControllerModule {
     }
 
     private Controller getController () {
-        return new ControllerImp(ModelModule.getInstance().getRepository());
+        return new ControllerImp(ArticleModelModule.getInstance().getArticleModel());
     }
 
     private View openWindowAndGetView(Controller controller){
+
         return ViewModule.getInstance().openWindow(controller);
     }
 
