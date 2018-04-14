@@ -46,9 +46,9 @@ public class ViewImp implements View{
   }
 
   private void updateMeaningTextPane(){
-    TextConverter textConverter = new TextConvertImp();
+
     Article article=articleModel.getArticle();
-    String meaningText = textConverter.textToHtml(article.getTerm(),article.getMeaning());
+    String meaningText =article.getMeaning();
     meaningTextPane.setText(meaningText);
   }
 
