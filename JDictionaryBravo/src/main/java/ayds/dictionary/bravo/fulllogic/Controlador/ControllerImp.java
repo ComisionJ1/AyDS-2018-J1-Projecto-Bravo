@@ -10,12 +10,10 @@ public class ControllerImp implements Controller{
 
 
     public ControllerImp(ArticleModel articleModel){
-
         this.articleModel=articleModel;
     }
 
     public void setView(View view) {
-
         this.view=view;
     }
 
