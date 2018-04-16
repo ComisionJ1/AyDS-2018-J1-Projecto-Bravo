@@ -33,7 +33,12 @@ public class ViewImp implements View{
     goButton.addActionListener(new ActionListener() {
                                  @Override public void actionPerformed(ActionEvent e) {
 
-                                   controller.onEventUpdate(termTextField.getText());
+                                  if (isValidTerm(termTextField.getText())) {
+                                      controller.onEventUpdate(termTextField.getText().trim());
+                                  }
+                                  else {
+                                      JOptionPane.showMessageDialog(null, "El término ingresado esta en un formato incorrecto. Solo se permiten letras de a-Z.", "Formato Incorrecto",JOptionPane.ERROR_MESSAGE);
+                                  }
                                  }
                                }
     );
@@ -46,8 +51,11 @@ public class ViewImp implements View{
     });
   }
 
-  private boolean validateTerm(){
-    return true;
+  private boolean isValidTerm(String term){
+    String termWithoutWhiteSpaces=term.trim().replaceAll("\\s+", " ");
+    boolean isValid=false;
+    if (termWithoutWhiteSpaces.matches("([a-zA-Z]+\\s?)+")) isValid=true;
+    return isValid;
   }
   private void updateMeaningTextPane(){
 
