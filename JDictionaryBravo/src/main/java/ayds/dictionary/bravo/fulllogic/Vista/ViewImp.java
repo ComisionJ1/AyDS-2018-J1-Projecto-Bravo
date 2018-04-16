@@ -48,8 +48,13 @@ public class ViewImp implements View{
   private void updateMeaningTextPane(){
 
     Article article=articleModel.getArticle();
-    String meaningText =TextConverter.textToHtml(article.getTerm(),article.getMeaning());
-    meaningTextPane.setText(meaningText);
+    if(!article.isMeaningNull()) {
+      String meaningText =TextConverter.textToHtml(article.getTerm(),article.getMeaning());
+      meaningTextPane.setText(meaningText);
+    } else {
+      meaningTextPane.setText("No results from ViewImp");
+    }
+
   }
 
 }

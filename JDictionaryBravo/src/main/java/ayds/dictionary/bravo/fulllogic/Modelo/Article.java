@@ -20,4 +20,8 @@ public class Article{
     public void addPrefix(){
         meaning="[*] "+meaning;
     }
+
+    public boolean isMeaningNull(){
+        return getMeaning()==null;
+    }
 }
