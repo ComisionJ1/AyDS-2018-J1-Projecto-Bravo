@@ -1,1 +1,1 @@
-package ayds.dictionary.bravo.fulllogic.Vista;import ayds.dictionary.bravo.fulllogic.Modelo.Article;public interface View {}
+package ayds.dictionary.bravo.fulllogic.Vista;public interface View {}

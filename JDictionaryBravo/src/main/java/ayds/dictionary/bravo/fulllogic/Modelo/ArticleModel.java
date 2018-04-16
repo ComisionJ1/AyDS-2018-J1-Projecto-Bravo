@@ -1,1 +1,1 @@
-package ayds.dictionary.bravo.fulllogic.Modelo;public interface ArticleModel {        Article getArticle();        void updateArticle(String term);        void setListener(ArticleModelListener listener);}
+package ayds.dictionary.bravo.fulllogic.Modelo;public interface ArticleModel {    Article getArticle();    void updateArticle(String term);    void setListener(ArticleModelListener listener);}

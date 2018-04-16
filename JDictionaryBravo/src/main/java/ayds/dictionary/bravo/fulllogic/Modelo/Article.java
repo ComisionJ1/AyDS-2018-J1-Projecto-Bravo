@@ -1,6 +1,7 @@
 package ayds.dictionary.bravo.fulllogic.Modelo;
 
 public class Article{
+
     private String term;
     private String meaning;
 

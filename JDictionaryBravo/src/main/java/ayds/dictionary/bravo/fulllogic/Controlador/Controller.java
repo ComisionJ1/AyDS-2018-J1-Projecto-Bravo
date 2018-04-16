@@ -5,7 +5,7 @@ import ayds.dictionary.bravo.fulllogic.Vista.View;
 public interface Controller {
 
     void onEventUpdate(String term);
-    void setView(View view);
 
+    void setView(View view);
 
 }

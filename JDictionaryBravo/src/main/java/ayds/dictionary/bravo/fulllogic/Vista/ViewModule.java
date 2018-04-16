@@ -19,7 +19,6 @@ public class ViewModule {
     public View openWindow (Controller controller) {
         ViewImp view = new ViewImp(controller,ArticleModelModule.getInstance().getArticleModel());
 
-
         JFrame frame = new JFrame("Online Dictionary");
         frame.setContentPane(view.contentPane);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

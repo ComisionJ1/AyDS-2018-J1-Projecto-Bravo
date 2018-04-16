@@ -8,7 +8,6 @@ public class ControllerImp implements Controller{
     private ArticleModel articleModel;
     private View view;
 
-
     public ControllerImp(ArticleModel articleModel){
         this.articleModel=articleModel;
     }
@@ -25,4 +24,5 @@ public class ControllerImp implements Controller{
             }
         }).start();
     }
+
 }

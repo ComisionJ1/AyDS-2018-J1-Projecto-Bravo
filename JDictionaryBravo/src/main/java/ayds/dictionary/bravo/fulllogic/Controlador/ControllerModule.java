@@ -17,11 +17,9 @@ public class ControllerModule {
     }
 
     void startApplication () {
-
         Controller controller = getController();
         View view = openWindowAndGetView(controller);
         controller.setView(view);
-
     }
 
     private Controller getController () {
@@ -29,7 +27,6 @@ public class ControllerModule {
     }
 
     private View openWindowAndGetView(Controller controller){
-
         return ViewModule.getInstance().openWindow(controller);
     }
 
