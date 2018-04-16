@@ -32,6 +32,7 @@ public class ViewImp implements View{
   private void initListeners(){
     goButton.addActionListener(new ActionListener() {
                                  @Override public void actionPerformed(ActionEvent e) {
+
                                    controller.onEventUpdate(termTextField.getText());
                                  }
                                }
@@ -45,6 +46,9 @@ public class ViewImp implements View{
     });
   }
 
+  private boolean validateTerm(){
+    return true;
+  }
   private void updateMeaningTextPane(){
 
     Article article=articleModel.getArticle();
@@ -52,7 +56,7 @@ public class ViewImp implements View{
       String meaningText =TextConverter.textToHtml(article.getTerm(),article.getMeaning());
       meaningTextPane.setText(meaningText);
     } else {
-      meaningTextPane.setText("No results from ViewImp");
+      meaningTextPane.setText("No results.");
     }
 
   }
