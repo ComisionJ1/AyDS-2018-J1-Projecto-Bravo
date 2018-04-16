@@ -55,3 +55,7 @@ JDictionaryBravo/out/production/classes/ayds/dictionary/bravo/fulllogic/Controla
 JDictionaryBravo/out/production/classes/ayds/dictionary/bravo/fulllogic/Controlador/Controller.class
 JDictionaryBravo/.idea/.name
 JDictionaryBravo/dictionary.db
+JDictionaryBravo/src/main/java/ayds/dictionary/bravo/fulllogic/Modelo/LocalSource/LocalSourceImp_REMOTE_12600.java
+JDictionaryBravo/src/main/java/ayds/dictionary/bravo/fulllogic/Modelo/LocalSource/LocalSourceImp_LOCAL_12600.java
+JDictionaryBravo/src/main/java/ayds/dictionary/bravo/fulllogic/Modelo/LocalSource/LocalSourceImp_BASE_12600.java
+JDictionaryBravo/src/main/java/ayds/dictionary/bravo/fulllogic/Modelo/LocalSource/LocalSourceImp_BACKUP_12600.java
