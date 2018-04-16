@@ -1,1 +1,0 @@
-package ayds.dictionary.bravo.fulllogic.Modelo;public interface RemoteSource {    Article getMeaning(String term);}

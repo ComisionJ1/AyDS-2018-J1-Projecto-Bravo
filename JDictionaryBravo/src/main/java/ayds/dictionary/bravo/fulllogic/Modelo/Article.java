@@ -16,4 +16,8 @@ public class Article{
     public String getMeaning(){
         return meaning;
     }
+
+    public void addPrefix(){
+        meaning="[*] "+meaning;
+    }
 }
