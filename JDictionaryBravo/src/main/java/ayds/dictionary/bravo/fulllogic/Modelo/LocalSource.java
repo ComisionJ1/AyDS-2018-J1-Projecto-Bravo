@@ -1,1 +1,0 @@
-package ayds.dictionary.bravo.fulllogic.Modelo;public interface LocalSource {    Article getMeaning(String term);    void saveArticle(Article art);}
