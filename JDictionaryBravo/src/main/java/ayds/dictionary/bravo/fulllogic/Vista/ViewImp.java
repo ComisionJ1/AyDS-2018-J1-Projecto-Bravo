@@ -56,7 +56,7 @@ public class ViewImp implements View{
 
         String termWithoutWhiteSpaces = term.trim().replaceAll("\\s+", " ");
 
-        if (termWithoutWhiteSpaces.matches("([a-zA-Z]+\\s?)+"))
+        if (termWithoutWhiteSpaces.matches("([A-Za-zÀ-ÿ]+\\s?)+"))
             isValid = true;
         return isValid;
     }
