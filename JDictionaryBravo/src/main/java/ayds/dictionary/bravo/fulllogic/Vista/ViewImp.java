@@ -34,7 +34,7 @@ public class ViewImp implements View{
                     controller.onEventUpdate(termTextField.getText().trim());
                 }
                 else {
-                    JOptionPane.showMessageDialog(null, "El término ingresado está en un formato incorrecto. Sólo se permiten letras de a-Z.", "Formato Incorrecto", JOptionPane.ERROR_MESSAGE);
+                    showAllowedCharacters();
                 }
             }
         });
@@ -46,6 +46,10 @@ public class ViewImp implements View{
             }
         });
   }
+
+    private void showAllowedCharacters(){
+        JOptionPane.showMessageDialog(null, "El término ingresado está en un formato incorrecto. Sólo se permiten letras de a-Z.", "Formato Incorrecto", JOptionPane.ERROR_MESSAGE);
+    }
 
     private boolean isValidTerm(String term) {
         boolean isValid = false;
