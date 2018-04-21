@@ -1,1 +1,0 @@
-package ayds.dictionary.bravo.fulllogic.Vista;public interface View {}

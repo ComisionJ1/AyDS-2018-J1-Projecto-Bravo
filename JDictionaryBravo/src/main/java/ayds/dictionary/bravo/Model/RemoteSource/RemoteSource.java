@@ -1,0 +1,1 @@
+package ayds.dictionary.bravo.Model.RemoteSource;import ayds.dictionary.bravo.Model.Article;public interface RemoteSource {    Article getMeaning(String term);}

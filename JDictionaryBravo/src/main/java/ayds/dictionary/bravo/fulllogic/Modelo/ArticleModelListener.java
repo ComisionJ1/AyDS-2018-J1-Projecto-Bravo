@@ -1,1 +1,0 @@
-package ayds.dictionary.bravo.fulllogic.Modelo;public interface ArticleModelListener {    void didUpdateArticle();}
