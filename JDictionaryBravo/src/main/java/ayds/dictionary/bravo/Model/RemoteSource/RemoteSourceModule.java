@@ -8,12 +8,12 @@ public class RemoteSourceModule {
     private RemoteSourceModule() {
 
         ResponseFormatParser parser = new ParserFromXML();
-        remoteSource=new RemoteSourceImp(parser);
+        remoteSource = new RemoteSourceImp(parser);
     }
 
     public static RemoteSourceModule getInstance() {
-        if(instance == null) {
-            instance =  new RemoteSourceModule();
+        if (instance == null) {
+            instance = new RemoteSourceModule();
         }
         return instance;
     }

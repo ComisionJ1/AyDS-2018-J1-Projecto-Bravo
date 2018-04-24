@@ -11,15 +11,15 @@ public class ArticleModelModule {
     private ArticleModel articleModel;
 
     private ArticleModelModule() {
-        LocalSource localSource= LocalSourceModule.getInstance().getLocalSource();
+        LocalSource localSource = LocalSourceModule.getInstance().getLocalSource();
         RemoteSource remoteSource = RemoteSourceModule.getInstance().getRemoteSource();
-        Repository repository=new Repository(localSource, remoteSource);
-        articleModel= new ArticleModelImp(repository);
+        Repository repository = new Repository(localSource, remoteSource);
+        articleModel = new ArticleModelImp(repository);
     }
 
     public static ArticleModelModule getInstance() {
-        if(instance == null) {
-            instance =  new ArticleModelModule();
+        if (instance == null) {
+            instance = new ArticleModelModule();
         }
         return instance;
     }

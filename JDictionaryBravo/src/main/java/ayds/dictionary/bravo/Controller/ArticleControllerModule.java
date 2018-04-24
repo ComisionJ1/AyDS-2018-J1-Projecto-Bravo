@@ -8,26 +8,27 @@ public class ArticleControllerModule {
 
     private static ArticleControllerModule instance;
 
-    private ArticleControllerModule() {}
+    private ArticleControllerModule() {
+    }
 
     public static ArticleControllerModule getInstance() {
-        if (instance==null) {
-            instance=new ArticleControllerModule();
+        if (instance == null) {
+            instance = new ArticleControllerModule();
         }
         return instance;
     }
 
-    void startApplication () {
+    void startApplication() {
         ArticleController articleController = getController();
         ArticleView articleView = openWindowAndGetView(articleController);
         articleController.setArticleView(articleView);
     }
 
-    private ArticleController getController () {
+    private ArticleController getController() {
         return new ArticleControllerImp(ArticleModelModule.getInstance().getArticleModel());
     }
 
-    private ArticleView openWindowAndGetView(ArticleController articleController){
+    private ArticleView openWindowAndGetView(ArticleController articleController) {
         return ArticleViewModule.getInstance().openWindow(articleController);
     }
 

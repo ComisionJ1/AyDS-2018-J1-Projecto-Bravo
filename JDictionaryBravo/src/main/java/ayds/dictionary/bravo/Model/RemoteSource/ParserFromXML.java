@@ -16,7 +16,7 @@ public class ParserFromXML implements ResponseFormatParser {
 
     @Override
     public Node parse(Response<String> callResponse) {
-        Node extract=null;
+        Node extract = null;
         try {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = dbf.newDocumentBuilder();
@@ -24,8 +24,7 @@ public class ParserFromXML implements ResponseFormatParser {
 
             NodeList nodes = doc.getDocumentElement().getElementsByTagName("extract");
             extract = nodes.item(0);
-        }
-        catch (ParserConfigurationException | IOException | SAXException exception){
+        } catch (ParserConfigurationException | IOException | SAXException exception) {
             //no se si aca hay que hacer algo. tampoco se si esta bien que capture las excepciones este metodo y no el remotesourceimp
         }
         return extract;
