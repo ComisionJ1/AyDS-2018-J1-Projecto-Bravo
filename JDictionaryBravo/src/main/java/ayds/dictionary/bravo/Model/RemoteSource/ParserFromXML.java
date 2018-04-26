@@ -12,7 +12,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 
-public class ParserFromXML implements ResponseFormatParser {
+class ParserFromXML implements ResponseFormatParser {
 
     @Override
     public Node parse(Response<String> callResponse) {

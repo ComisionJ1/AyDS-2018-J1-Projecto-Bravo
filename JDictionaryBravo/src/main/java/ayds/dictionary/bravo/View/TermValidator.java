@@ -1,6 +1,6 @@
 package ayds.dictionary.bravo.View;
 
-public class TermValidator {
+class TermValidator {
 
     public static boolean isValidTerm(String term) {
         boolean isValid = false;
