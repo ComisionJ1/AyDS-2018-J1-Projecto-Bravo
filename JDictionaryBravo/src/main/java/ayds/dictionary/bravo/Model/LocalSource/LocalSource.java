@@ -1,0 +1,1 @@
+package ayds.dictionary.bravo.Model.LocalSource;import ayds.dictionary.bravo.Model.Article;public interface LocalSource {    Article getMeaning(String term);    void saveArticle(Article art);}

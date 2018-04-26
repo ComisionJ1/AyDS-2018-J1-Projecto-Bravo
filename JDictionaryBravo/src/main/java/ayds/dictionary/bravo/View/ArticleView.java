@@ -1,0 +1,1 @@
+package ayds.dictionary.bravo.View;public interface ArticleView {}
