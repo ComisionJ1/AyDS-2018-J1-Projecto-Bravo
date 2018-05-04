@@ -4,12 +4,9 @@ import ayds.dictionary.bravo.Controller.ArticleController;
 import ayds.dictionary.bravo.Model.Article;
 import ayds.dictionary.bravo.Model.ArticleModel;
 import ayds.dictionary.bravo.Model.ArticleModelListener;
+import ayds.dictionary.bravo.Model.Source;
 
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.JTextPane;
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -20,6 +17,7 @@ class ArticleViewImp implements ArticleView {
     private JButton goButton;
     protected JPanel contentPane;
     private JTextPane meaningTextPane;
+    private JLabel sourceLabel;
 
     ArticleViewImp(ArticleController articleController, ArticleModel articleModel) {
         this.articleController = articleController;
@@ -70,10 +68,13 @@ class ArticleViewImp implements ArticleView {
         if (article.hasMeaning()) {
             String meaningText = TextConverter.textToHtml(article.getTerm(), article.getMeaning());
             meaningTextPane.setText(meaningText);
+            sourceLabel.setText(Source.getSource(article.getSource()));
         } else {
             meaningTextPane.setText("No results.");
+            sourceLabel.setText("");
         }
     }
+
 
 }
 

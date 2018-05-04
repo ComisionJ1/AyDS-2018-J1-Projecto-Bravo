@@ -6,10 +6,12 @@ public class Article {
 
     private String term;
     private String meaning;
+    private int source;
 
-    public Article(String term, String meaning) {
+    public Article(String term, String meaning, int source) {
         this.term = term;
         this.meaning = meaning;
+        this.source=source;
     }
 
     public String getTerm() {
@@ -18,6 +20,10 @@ public class Article {
 
     public String getMeaning() {
         return meaning;
+    }
+
+    public int getSource() {
+        return source;
     }
 
     public void addPrefix() {
