@@ -18,6 +18,7 @@ class ArticleViewImp implements ArticleView {
     protected JPanel contentPane;
     private JTextPane meaningTextPane;
     private JLabel sourceLabel;
+    private JProgressBar progressBar;
 
     ArticleViewImp(ArticleController articleController, ArticleModel articleModel) {
         this.articleController = articleController;
@@ -73,8 +74,12 @@ class ArticleViewImp implements ArticleView {
             meaningTextPane.setText("No results.");
             sourceLabel.setText("");
         }
+
     }
 
+    public void updateProgress(int progress) {
+        progressBar.setValue(progress);
+    }
 
 }
 
