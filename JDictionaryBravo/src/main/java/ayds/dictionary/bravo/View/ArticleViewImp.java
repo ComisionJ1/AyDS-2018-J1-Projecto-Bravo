@@ -40,18 +40,16 @@ class ArticleViewImp implements ArticleView {
         goButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (TermValidator.isValidTerm(termTextField.getText())) {
+                if (TermValidator.isTermValid(termTextField.getText())) {
                     articleController.onEventUpdate(termTextField.getText().trim());
                 } else {
-                    showAllowedCharacters();
+                    ErrorHandler.showAllowedCharacters();
                 }
             }
         });
     }
 
-    private void showAllowedCharacters() {
-        JOptionPane.showMessageDialog(null, "El término ingresado está en un formato incorrecto. Sólo se permiten letras de a-Z.", "Formato Incorrecto", JOptionPane.ERROR_MESSAGE);
-    }
+
 
 
     private void initArticleModelListener() {

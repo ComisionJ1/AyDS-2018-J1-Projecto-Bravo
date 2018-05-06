@@ -2,7 +2,7 @@ package ayds.dictionary.bravo.View;
 
 class TermValidator {
 
-    public static boolean isValidTerm(String term) {
+    public static boolean isTermValid(String term) {
         boolean isValid = false;
         String termWithoutWhiteSpaces = term.trim().replaceAll("\\s+", " ");
 
