@@ -5,6 +5,7 @@ import ayds.dictionary.bravo.Model.*;
 import ayds.dictionary.bravo.Model.Exception.UnallowedCharacterException;
 
 import javax.swing.*;
+import javax.swing.text.View;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -44,7 +45,7 @@ class ArticleViewImp implements ArticleView {
                         articleController.onEventUpdate(termTextField.getText().trim());
                     }
                 } catch (UnallowedCharacterException e1) {
-                    System.out.println(e1.getMessage());
+                    articleModel.getErrorHandler().hasError(e1);
                 }
             }
         });
