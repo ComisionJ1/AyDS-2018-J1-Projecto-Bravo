@@ -1,4 +1,4 @@
-package ayds.dictionary.bravo.Model.RemoteSource;
+package ayds.dictionary.RemoteSource;
 
 import retrofit2.Response;
 import org.w3c.dom.Node;

@@ -4,7 +4,6 @@ import ayds.dictionary.bravo.Controller.ArticleController;
 import ayds.dictionary.bravo.Model.Article;
 import ayds.dictionary.bravo.Model.ArticleModel;
 import ayds.dictionary.bravo.Model.ArticleModelListener;
-import ayds.dictionary.bravo.Model.Source;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -41,6 +40,7 @@ class ArticleViewImp implements ArticleView {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (TermValidator.isValidTerm(termTextField.getText())) {
+                    goButton.setEnabled(false);
                     articleController.onEventUpdate(termTextField.getText().trim());
                 } else {
                     showAllowedCharacters();
@@ -69,11 +69,13 @@ class ArticleViewImp implements ArticleView {
         if (article.hasMeaning()) {
             String meaningText = TextConverter.textToHtml(article.getTerm(), article.getMeaning());
             meaningTextPane.setText(meaningText);
-            sourceLabel.setText(Source.getSource(article.getSource()));
+            sourceLabel.setText(article.getSource().toString());
         } else {
             meaningTextPane.setText("No results.");
             sourceLabel.setText("");
         }
+
+        goButton.setEnabled(true);
 
     }
 

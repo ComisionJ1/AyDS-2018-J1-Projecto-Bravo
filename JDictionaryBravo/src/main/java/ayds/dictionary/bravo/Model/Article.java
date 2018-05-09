@@ -6,9 +6,9 @@ public class Article {
 
     private String term;
     private String meaning;
-    private int source;
+    private Source source;
 
-    public Article(String term, String meaning, int source) {
+    public Article(String term, String meaning, Source source) {
         this.term = term;
         this.meaning = meaning;
         this.source=source;
@@ -22,7 +22,7 @@ public class Article {
         return meaning;
     }
 
-    public int getSource() {
+    public Source getSource() {
         return source;
     }
 

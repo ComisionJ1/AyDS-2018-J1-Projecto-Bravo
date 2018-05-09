@@ -1,13 +1,9 @@
 package ayds.dictionary.bravo.Model;
 
-public class Source {
+public enum Source {
 
-   public static final int WIKIPEDIA = 1;
+    WIKIPEDIA
 
-   public static String getSource(int source){
-       switch (source){
-           case 1: return "WIKIPEDIA";
-       }
-       return "emaNoNosMates Aca tiramos excepcion?";
-   }
 }
+
+

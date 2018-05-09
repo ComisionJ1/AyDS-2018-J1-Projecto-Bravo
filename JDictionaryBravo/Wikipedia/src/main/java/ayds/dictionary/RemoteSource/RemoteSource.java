@@ -1,0 +1,1 @@
+package ayds.dictionary.RemoteSource;public interface RemoteSource {    String getMeaning(String term);}
