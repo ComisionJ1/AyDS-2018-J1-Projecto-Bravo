@@ -4,16 +4,16 @@ public class ErrorHandler {
 
     private ErrorHandlerListener listenerError;
 
-    public void setListener(ErrorHandlerListener listener) {
+    public void setErrorListener(ErrorHandlerListener listener) {
         this.listenerError = listener;
     }
 
-    public void hasError(String message) {
-        notifyListener(message);
+    public void hasError(Exception e) {
+        notifyListener(e);
     }
-    private void notifyListener(String message) {
+    private void notifyListener(Exception e) {
         if (listenerError != null) {
-            listenerError.errorEvent(message);
+            listenerError.errorEvent(e);
         }
     }
 }

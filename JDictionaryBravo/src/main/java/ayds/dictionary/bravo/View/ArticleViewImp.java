@@ -2,6 +2,7 @@ package ayds.dictionary.bravo.View;
 
 import ayds.dictionary.bravo.Controller.ArticleController;
 import ayds.dictionary.bravo.Model.*;
+import ayds.dictionary.bravo.Model.Exception.UnallowedCharacterException;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -38,15 +39,16 @@ class ArticleViewImp implements ArticleView {
         goButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (TermValidator.isTermValid(termTextField.getText())) {
-                    articleController.onEventUpdate(termTextField.getText().trim());
+                try {
+                    if (TermValidator.isTermValid(termTextField.getText())) {
+                        articleController.onEventUpdate(termTextField.getText().trim());
+                    }
+                } catch (UnallowedCharacterException e1) {
+                    System.out.println(e1.getMessage());
                 }
             }
         });
     }
-
-
-
 
     private void initArticleModelListener() {
         articleModel.setListener(new ArticleModelListener() {
@@ -72,10 +74,10 @@ class ArticleViewImp implements ArticleView {
     }
 
     private void initErrorHandlerListener(){
-        errorHandler.setListener(new ErrorHandlerListener() {
+        articleModel.getErrorHandler().setErrorListener(new ErrorHandlerListener() {
             @Override
-            public void errorEvent(String message) {
-                ViewErrorHandler.showError(message);
+            public void errorEvent(Exception e) {
+                ViewErrorHandler.showError(e.getMessage());
             }
         });
 

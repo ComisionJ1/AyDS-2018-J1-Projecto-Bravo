@@ -1,18 +1,17 @@
 package ayds.dictionary.bravo.View;
 
 import ayds.dictionary.bravo.Model.ErrorHandlerModule;
+import ayds.dictionary.bravo.Model.Exception.UnallowedCharacterException;
 
 class TermValidator {
 
-    public static boolean isTermValid(String term) {
+    public static boolean isTermValid(String term) throws UnallowedCharacterException {
         boolean isValid = false;
         String termWithoutWhiteSpaces = term.trim().replaceAll("\\s+", " ");
 
         if (termWithoutWhiteSpaces.matches("([A-Za-zÀ-ÿ]+\\s?)+"))
             isValid = true;
-
-        if (isValid==false) ErrorHandlerModule.getInstance().getErrorHandler().hasError
-                ("Ha ingresado un caracter prohibido. Los caracteres aceptados son a-Z.");
+        else throw new UnallowedCharacterException();
 
         return isValid;
     }

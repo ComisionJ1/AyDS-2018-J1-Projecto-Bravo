@@ -13,8 +13,9 @@ public class ArticleModelModule {
     private ArticleModelModule() {
         LocalSource localSource = LocalSourceModule.getInstance().getLocalSource();
         RemoteSource remoteSource = RemoteSourceModule.getInstance().getRemoteSource();
-        Repository repository = new Repository(localSource, remoteSource);
-        articleModel = new ArticleModelImp(repository);
+        ErrorHandler errorHandler = ErrorHandlerModule.getInstance().getErrorHandler();
+        Repository repository = new Repository(localSource, remoteSource, errorHandler);
+        articleModel = new ArticleModelImp(repository, errorHandler);
     }
 
     public static ArticleModelModule getInstance() {
