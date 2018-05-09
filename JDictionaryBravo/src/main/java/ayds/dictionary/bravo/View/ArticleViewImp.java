@@ -1,10 +1,7 @@
 package ayds.dictionary.bravo.View;
 
 import ayds.dictionary.bravo.Controller.ArticleController;
-import ayds.dictionary.bravo.Model.Article;
-import ayds.dictionary.bravo.Model.ArticleModel;
-import ayds.dictionary.bravo.Model.ArticleModelListener;
-import ayds.dictionary.bravo.Model.Source;
+import ayds.dictionary.bravo.Model.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -13,6 +10,7 @@ import java.awt.event.ActionListener;
 class ArticleViewImp implements ArticleView {
     private ArticleController articleController;
     private ArticleModel articleModel;
+    private ErrorHandler errorHandler;
     private JTextField termTextField;
     private JButton goButton;
     protected JPanel contentPane;
@@ -23,7 +21,7 @@ class ArticleViewImp implements ArticleView {
     ArticleViewImp(ArticleController articleController, ArticleModel articleModel) {
         this.articleController = articleController;
         this.articleModel = articleModel;
-
+        errorHandler=ErrorHandlerModule.getInstance().getErrorHandler();
         meaningTextPane.setContentType("text/html");
 
         initListeners();
@@ -32,8 +30,8 @@ class ArticleViewImp implements ArticleView {
     private void initListeners() {
 
         initGoButtonListener();
-
         initArticleModelListener();
+        initErrorHandlerListener();
     }
 
     private void initGoButtonListener() {
@@ -42,8 +40,6 @@ class ArticleViewImp implements ArticleView {
             public void actionPerformed(ActionEvent e) {
                 if (TermValidator.isTermValid(termTextField.getText())) {
                     articleController.onEventUpdate(termTextField.getText().trim());
-                } else {
-                    ErrorHandler.showAllowedCharacters();
                 }
             }
         });
@@ -72,6 +68,16 @@ class ArticleViewImp implements ArticleView {
             meaningTextPane.setText("No results.");
             sourceLabel.setText("");
         }
+
+    }
+
+    private void initErrorHandlerListener(){
+        errorHandler.setListener(new ErrorHandlerListener() {
+            @Override
+            public void errorEvent(String message) {
+                ViewErrorHandler.showError(message);
+            }
+        });
 
     }
 
