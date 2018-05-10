@@ -1,1 +1,1 @@
-package ayds.dictionary.RemoteSource;public interface RemoteSource {    String getMeaning(String term);}
+package ayds.dictionary.RemoteSource;import java.io.IOException;public interface RemoteSource {    String getMeaning(String term) throws Exception;}

@@ -1,11 +1,9 @@
 package ayds.dictionary.bravo.View;
 
 import ayds.dictionary.bravo.Controller.ArticleController;
-import ayds.dictionary.bravo.Model.Article;
-import ayds.dictionary.bravo.Model.ArticleModel;
-import ayds.dictionary.bravo.Model.ArticleModelListener;
 import ayds.dictionary.bravo.Model.*;
 import ayds.dictionary.bravo.Model.Exception.UnallowedCharacterException;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,7 +22,7 @@ class ArticleViewImp implements ArticleView {
     ArticleViewImp(ArticleController articleController, ArticleModel articleModel) {
         this.articleController = articleController;
         this.articleModel = articleModel;
-        errorHandler=ErrorHandlerModule.getInstance().getErrorHandler();
+        errorHandler = ErrorHandlerModule.getInstance().getErrorHandler();
         meaningTextPane.setContentType("text/html");
         loadingBarLabel.setVisible(false);
 
@@ -41,7 +39,7 @@ class ArticleViewImp implements ArticleView {
         goButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-              try {
+                try {
                     if (TermValidator.isTermValid(termTextField.getText())) {
                         disableSearch();
                         articleController.onEventUpdate(termTextField.getText().trim());
@@ -53,7 +51,7 @@ class ArticleViewImp implements ArticleView {
         });
     }
 
-    private void disableSearch(){
+    private void disableSearch() {
         goButton.setEnabled(false);
         meaningTextPane.setText("");
         loadingBarLabel.setVisible(true);
@@ -82,12 +80,12 @@ class ArticleViewImp implements ArticleView {
         enableSearch();
     }
 
-    private void enableSearch(){
+    private void enableSearch() {
         goButton.setEnabled(true);
         loadingBarLabel.setVisible(false);
     }
 
-    private void initErrorHandlerListener(){
+    private void initErrorHandlerListener() {
         articleModel.getErrorHandler().setErrorListener(new ErrorHandlerListener() {
             @Override
             public void errorEvent(Exception e) {

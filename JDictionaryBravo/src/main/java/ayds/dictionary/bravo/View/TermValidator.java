@@ -1,4 +1,5 @@
 package ayds.dictionary.bravo.View;
+
 import ayds.dictionary.bravo.Model.Exception.UnallowedCharacterException;
 
 class TermValidator {

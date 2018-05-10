@@ -6,12 +6,12 @@ public class LocalSourceModule {
     private LocalSource localSource;
 
     private LocalSourceModule() {
-        localSource=new LocalSourceImp();
+        localSource = new LocalSourceImp();
     }
 
     public static LocalSourceModule getInstance() {
-        if(instance == null) {
-            instance =  new LocalSourceModule();
+        if (instance == null) {
+            instance = new LocalSourceModule();
         }
         return instance;
     }

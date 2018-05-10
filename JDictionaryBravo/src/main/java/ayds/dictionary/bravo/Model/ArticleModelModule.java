@@ -13,10 +13,10 @@ public class ArticleModelModule {
     private ArticleModelModule() {
         LocalSource localSource = LocalSourceModule.getInstance().getLocalSource();
         RemoteSource remoteSource = RemoteSourceModule.getInstance().getRemoteSource();
-        WikipediaAdapter wikipediaAdapter=new WikipediaAdapter(remoteSource);
+        WikipediaAdapter wikipediaAdapter = new WikipediaAdapter(remoteSource);
         ErrorHandler errorHandler = ErrorHandlerModule.getInstance().getErrorHandler();
         Repository repository = new Repository(localSource, wikipediaAdapter, errorHandler);
-        articleModel = new ArticleModelImp(repository,errorHandler);
+        articleModel = new ArticleModelImp(repository, errorHandler);
     }
 
     public static ArticleModelModule getInstance() {

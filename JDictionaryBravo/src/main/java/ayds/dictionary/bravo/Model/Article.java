@@ -11,7 +11,7 @@ public class Article {
     public Article(String term, String meaning, Source source) {
         this.term = term;
         this.meaning = meaning;
-        this.source=source;
+        this.source = source;
     }
 
     public String getTerm() {

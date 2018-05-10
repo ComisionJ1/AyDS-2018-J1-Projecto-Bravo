@@ -11,6 +11,7 @@ public class ErrorHandler {
     public void hasError(Exception e) {
         notifyListener(e);
     }
+
     private void notifyListener(Exception e) {
         if (listenerError != null) {
             listenerError.errorEvent(e);
