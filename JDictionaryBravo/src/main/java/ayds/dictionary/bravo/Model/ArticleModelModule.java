@@ -14,8 +14,9 @@ public class ArticleModelModule {
         LocalSource localSource = LocalSourceModule.getInstance().getLocalSource();
         RemoteSource remoteSource = RemoteSourceModule.getInstance().getRemoteSource();
         WikipediaAdapter wikipediaAdapter=new WikipediaAdapter(remoteSource);
-        Repository repository = new Repository(localSource, wikipediaAdapter);
-        articleModel = new ArticleModelImp(repository);
+        ErrorHandler errorHandler = ErrorHandlerModule.getInstance().getErrorHandler();
+        Repository repository = new Repository(localSource, wikipediaAdapter, errorHandler);
+        articleModel = new ArticleModelImp(repository,errorHandler);
     }
 
     public static ArticleModelModule getInstance() {
