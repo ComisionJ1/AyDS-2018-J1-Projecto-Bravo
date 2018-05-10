@@ -19,19 +19,19 @@ class ArticleViewImp implements ArticleView {
     protected JPanel contentPane;
     private JTextPane meaningTextPane;
     private JLabel sourceLabel;
-    private JProgressBar progressBar;
+    private JLabel loadingBarLabel;
 
     ArticleViewImp(ArticleController articleController, ArticleModel articleModel) {
         this.articleController = articleController;
         this.articleModel = articleModel;
         errorHandler=ErrorHandlerModule.getInstance().getErrorHandler();
         meaningTextPane.setContentType("text/html");
+        loadingBarLabel.setVisible(false);
 
         initListeners();
     }
 
     private void initListeners() {
-
         initGoButtonListener();
         initArticleModelListener();
         initErrorHandlerListener();
@@ -43,6 +43,7 @@ class ArticleViewImp implements ArticleView {
             public void actionPerformed(ActionEvent e) {
               try {
                     if (TermValidator.isTermValid(termTextField.getText())) {
+                        disableSearch();
                         articleController.onEventUpdate(termTextField.getText().trim());
                     }
                 } catch (UnallowedCharacterException e1) {
@@ -50,6 +51,12 @@ class ArticleViewImp implements ArticleView {
                 }
             }
         });
+    }
+
+    private void disableSearch(){
+        goButton.setEnabled(false);
+        meaningTextPane.setText("");
+        loadingBarLabel.setVisible(true);
     }
 
     private void initArticleModelListener() {
@@ -72,9 +79,12 @@ class ArticleViewImp implements ArticleView {
             meaningTextPane.setText("No results.");
             sourceLabel.setText("");
         }
+        enableSearch();
+    }
 
+    private void enableSearch(){
         goButton.setEnabled(true);
-
+        loadingBarLabel.setVisible(false);
     }
 
     private void initErrorHandlerListener(){
@@ -85,10 +95,6 @@ class ArticleViewImp implements ArticleView {
             }
         });
 
-    }
-
-    public void updateProgress(int progress) {
-        progressBar.setValue(progress);
     }
 
 }

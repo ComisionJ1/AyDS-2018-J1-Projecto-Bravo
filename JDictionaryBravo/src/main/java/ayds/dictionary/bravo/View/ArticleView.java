@@ -1,1 +1,1 @@
-package ayds.dictionary.bravo.View;public interface ArticleView {    void updateProgress(int i);}
+package ayds.dictionary.bravo.View;public interface ArticleView {}
