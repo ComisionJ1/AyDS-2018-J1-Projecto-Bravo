@@ -1,9 +1,10 @@
 package ayds.dictionary.bravo.View;
 
 import ayds.dictionary.bravo.Controller.ArticleController;
-import ayds.dictionary.bravo.Model.*;
-import ayds.dictionary.bravo.Model.Exception.UnallowedCharacterException;
-
+import ayds.dictionary.bravo.Model.Article;
+import ayds.dictionary.bravo.Model.ArticleModel;
+import ayds.dictionary.bravo.Model.ArticleModelListener;
+import ayds.dictionary.bravo.Model.ErrorHandlerListener;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,7 +12,6 @@ import java.awt.event.ActionListener;
 class ArticleViewImp implements ArticleView {
     private ArticleController articleController;
     private ArticleModel articleModel;
-    private ErrorHandler errorHandler;
     private JTextField termTextField;
     private JButton goButton;
     protected JPanel contentPane;
@@ -22,7 +22,6 @@ class ArticleViewImp implements ArticleView {
     ArticleViewImp(ArticleController articleController, ArticleModel articleModel) {
         this.articleController = articleController;
         this.articleModel = articleModel;
-        errorHandler = ErrorHandlerModule.getInstance().getErrorHandler();
         meaningTextPane.setContentType("text/html");
         loadingBarLabel.setVisible(false);
 
@@ -38,14 +37,14 @@ class ArticleViewImp implements ArticleView {
     private void initGoButtonListener() {
         goButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent event) {
                 try {
                     if (TermValidator.isTermValid(termTextField.getText())) {
                         disableSearch();
                         articleController.onEventUpdate(termTextField.getText().trim());
                     }
-                } catch (UnallowedCharacterException e1) {
-                    articleModel.getErrorHandler().hasError(e1);
+                } catch (UnallowedCharacterException e) {
+                    showError(e);
                 }
             }
         });
@@ -55,6 +54,10 @@ class ArticleViewImp implements ArticleView {
         goButton.setEnabled(false);
         meaningTextPane.setText("");
         loadingBarLabel.setVisible(true);
+    }
+
+    private void showError(Exception e) {
+        ViewErrorHandler.showError(e.getMessage());
     }
 
     private void initArticleModelListener() {
@@ -86,13 +89,12 @@ class ArticleViewImp implements ArticleView {
     }
 
     private void initErrorHandlerListener() {
-        articleModel.getErrorHandler().setErrorListener(new ErrorHandlerListener() {
+        articleModel.setErrorListener(new ErrorHandlerListener() {
             @Override
             public void errorEvent(Exception e) {
-                ViewErrorHandler.showError(e.getMessage());
+                showError(e);
             }
         });
-
     }
 
 }

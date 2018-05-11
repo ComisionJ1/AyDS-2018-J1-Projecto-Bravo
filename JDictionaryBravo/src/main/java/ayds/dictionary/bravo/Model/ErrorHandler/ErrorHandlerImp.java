@@ -1,6 +1,8 @@
-package ayds.dictionary.bravo.Model;
+package ayds.dictionary.bravo.Model.ErrorHandler;
 
-public class ErrorHandler {
+import ayds.dictionary.bravo.Model.ErrorHandlerListener;
+
+class ErrorHandlerImp implements ErrorHandler {
 
     private ErrorHandlerListener listenerError;
 

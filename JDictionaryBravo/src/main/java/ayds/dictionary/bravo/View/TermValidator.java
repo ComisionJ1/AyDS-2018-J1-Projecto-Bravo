@@ -1,7 +1,5 @@
 package ayds.dictionary.bravo.View;
 
-import ayds.dictionary.bravo.Model.Exception.UnallowedCharacterException;
-
 class TermValidator {
 
     public static boolean isTermValid(String term) throws UnallowedCharacterException {

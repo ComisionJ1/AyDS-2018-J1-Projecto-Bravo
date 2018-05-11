@@ -2,8 +2,11 @@ package ayds.dictionary.bravo.Model;
 
 import ayds.dictionary.RemoteSource.RemoteSource;
 import ayds.dictionary.RemoteSource.RemoteSourceModule;
+import ayds.dictionary.bravo.Model.ErrorHandler.ErrorHandler;
+import ayds.dictionary.bravo.Model.ErrorHandler.ErrorHandlerModule;
 import ayds.dictionary.bravo.Model.LocalSource.LocalSource;
 import ayds.dictionary.bravo.Model.LocalSource.LocalSourceModule;
+import ayds.dictionary.bravo.Model.RemoteSource.WikipediaAdapter;
 
 public class ArticleModelModule {
 
