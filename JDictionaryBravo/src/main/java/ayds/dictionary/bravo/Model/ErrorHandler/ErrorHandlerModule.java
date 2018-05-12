@@ -3,7 +3,7 @@ package ayds.dictionary.bravo.Model.ErrorHandler;
 public class ErrorHandlerModule {
 
     private static ErrorHandlerModule instance;
-    private ErrorHandlerImp errorHandler;
+    private ErrorHandler errorHandler;
 
     private ErrorHandlerModule() {
         errorHandler = new ErrorHandlerImp();
@@ -16,7 +16,7 @@ public class ErrorHandlerModule {
         return instance;
     }
 
-    public ErrorHandlerImp getErrorHandler() {
+    public ErrorHandler getErrorHandler() {
         return errorHandler;
     }
 }
