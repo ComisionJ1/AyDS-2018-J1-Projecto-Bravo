@@ -1,4 +1,4 @@
-package ayds.dictionary.bravo.Model.RemoteSource;
+package ayds.dictionary.RemoteSource;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -12,7 +12,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 
-public class ParserFromXML implements ResponseFormatParser {
+class ParserFromXML implements ResponseFormatParser {
 
     @Override
     public Node parse(Response<String> callResponse) {

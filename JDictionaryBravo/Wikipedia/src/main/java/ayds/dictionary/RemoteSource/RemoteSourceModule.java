@@ -1,4 +1,4 @@
-package ayds.dictionary.bravo.Model.RemoteSource;
+package ayds.dictionary.RemoteSource;
 
 public class RemoteSourceModule {
 

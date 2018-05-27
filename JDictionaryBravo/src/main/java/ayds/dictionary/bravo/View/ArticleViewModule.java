@@ -3,8 +3,7 @@ package ayds.dictionary.bravo.View;
 import ayds.dictionary.bravo.Controller.ArticleController;
 import ayds.dictionary.bravo.Model.ArticleModelModule;
 
-import javax.swing.JFrame;
-import javax.swing.WindowConstants;
+import javax.swing.*;
 
 public class ArticleViewModule {
 

@@ -1,4 +1,4 @@
-package ayds.dictionary.bravo.Model.RemoteSource;
+package ayds.dictionary.RemoteSource;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

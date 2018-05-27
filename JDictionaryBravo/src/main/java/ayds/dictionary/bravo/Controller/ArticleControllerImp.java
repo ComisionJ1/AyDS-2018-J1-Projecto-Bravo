@@ -25,5 +25,4 @@ class ArticleControllerImp implements ArticleController {
             }
         }).start();
     }
-
 }
