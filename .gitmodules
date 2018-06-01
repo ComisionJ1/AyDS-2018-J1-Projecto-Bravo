@@ -1,0 +1,3 @@
+[submodule "JDictionaryBravo/WikipediaAPI"]
+	path = JDictionaryBravo/WikipediaAPI
+	url = https://github.com/ComisionJ1/WikipediaAPI.git
