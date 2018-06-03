@@ -1,10 +1,8 @@
 package ayds.dictionary.bravo.View;
 
 import ayds.dictionary.bravo.Controller.ArticleController;
-import ayds.dictionary.bravo.Model.Article;
-import ayds.dictionary.bravo.Model.ArticleModel;
-import ayds.dictionary.bravo.Model.ArticleModelListener;
-import ayds.dictionary.bravo.Model.ErrorHandlerListener;
+import ayds.dictionary.bravo.Model.*;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -70,7 +68,7 @@ class ArticleViewImp implements ArticleView {
     }
 
     private void updateMeaningTextPane() {
-        Article article = articleModel.getArticle();
+        ArticleInterface article = articleModel.getArticle();
 
         if (article.hasMeaning()) {
             String meaningText = TextConverter.textToHtml(article.getTerm(), article.getMeaning());

@@ -1,6 +1,6 @@
 package ayds.dictionary.bravo.Model;
 
-public class Article {
+public class Article implements ArticleInterface {
 
     private static final String prefix = "[*]";
 
