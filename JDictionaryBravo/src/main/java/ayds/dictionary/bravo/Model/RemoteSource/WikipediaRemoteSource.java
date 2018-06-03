@@ -1,16 +1,15 @@
 package ayds.dictionary.bravo.Model.RemoteSource;
 
-import ayds.dictionary.RemoteSource.RemoteSource;
 import ayds.dictionary.bravo.Model.Article;
 import ayds.dictionary.bravo.Model.Source;
 
 import java.io.IOException;
 
-public class WikipediaAdapter implements Adapter {
+public class WikipediaRemoteSource implements RemoteSource {
 
-    private RemoteSource remoteSource;
+    private ayds.dictionary.RemoteSource.RemoteSource remoteSource;
 
-    public WikipediaAdapter(RemoteSource remoteSource) {
+    public WikipediaRemoteSource(ayds.dictionary.RemoteSource.RemoteSource remoteSource) {
         this.remoteSource = remoteSource;
     }
 

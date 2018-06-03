@@ -6,7 +6,7 @@ import ayds.dictionary.bravo.Model.ErrorHandler.ErrorHandler;
 import ayds.dictionary.bravo.Model.ErrorHandler.ErrorHandlerModule;
 import ayds.dictionary.bravo.Model.LocalSource.LocalSource;
 import ayds.dictionary.bravo.Model.LocalSource.LocalSourceModule;
-import ayds.dictionary.bravo.Model.RemoteSource.WikipediaAdapter;
+import ayds.dictionary.bravo.Model.RemoteSource.WikipediaRemoteSource;
 
 public class ArticleModelModule {
 
@@ -16,7 +16,7 @@ public class ArticleModelModule {
     private ArticleModelModule() {
         LocalSource localSource = LocalSourceModule.getInstance().getLocalSource();
         RemoteSource remoteSource = RemoteSourceModule.getInstance().getRemoteSource();
-        WikipediaAdapter wikipediaAdapter = new WikipediaAdapter(remoteSource);
+        WikipediaRemoteSource wikipediaAdapter = new WikipediaRemoteSource(remoteSource);
         ErrorHandler errorHandler = ErrorHandlerModule.getInstance().getErrorHandler();
         Repository repository = new Repository(localSource, wikipediaAdapter, errorHandler);
         articleModel = new ArticleModelImp(repository, errorHandler);
