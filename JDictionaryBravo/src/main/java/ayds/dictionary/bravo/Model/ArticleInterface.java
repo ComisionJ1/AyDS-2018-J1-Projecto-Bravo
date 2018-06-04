@@ -1,1 +1,0 @@
-package ayds.dictionary.bravo.Model;public interface ArticleInterface {    String getTerm();    String getMeaning();    Source getSource();    void addPrefix();    boolean hasMeaning();}

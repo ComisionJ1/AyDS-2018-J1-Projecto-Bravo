@@ -1,6 +1,6 @@
 package ayds.dictionary.bravo.Model;
 
-public class Article implements ArticleInterface {
+public class Article {
 
     private static final String prefix = "[*]";
 
@@ -31,6 +31,6 @@ public class Article implements ArticleInterface {
     }
 
     public boolean hasMeaning() {
-        return getMeaning() != null && !getMeaning().trim().equals("");
+        return true;
     }
 }

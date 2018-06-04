@@ -68,7 +68,7 @@ class ArticleViewImp implements ArticleView {
     }
 
     private void updateMeaningTextPane() {
-        ArticleInterface article = articleModel.getArticle();
+        Article article = articleModel.getArticle();
 
         if (article.hasMeaning()) {
             String meaningText = TextConverter.textToHtml(article.getTerm(), article.getMeaning());
@@ -76,7 +76,6 @@ class ArticleViewImp implements ArticleView {
             sourceLabel.setText(article.getSource().toString());
         } else {
             meaningTextPane.setText("No results.");
-            sourceLabel.setText("");
         }
         enableSearch();
     }
