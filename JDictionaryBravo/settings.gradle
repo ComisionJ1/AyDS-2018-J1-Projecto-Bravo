@@ -1,3 +1,4 @@
 rootProject.name = 'DictionaryBravo'
-include 'Wikipedia'
+include ':Wikipedia'
+project (':Wikipedia').projectDir=new File('./WikipediaAPI/Wikipedia')
 

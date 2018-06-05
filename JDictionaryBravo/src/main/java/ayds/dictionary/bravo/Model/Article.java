@@ -31,6 +31,6 @@ public class Article {
     }
 
     public boolean hasMeaning() {
-        return getMeaning() != null && !getMeaning().trim().equals("");
+        return true;
     }
 }
