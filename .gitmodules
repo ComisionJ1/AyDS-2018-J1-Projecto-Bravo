@@ -1,3 +1,9 @@
 [submodule "JDictionaryBravo/WikipediaAPI"]
 	path = JDictionaryBravo/WikipediaAPI
 	url = https://github.com/ComisionJ1/WikipediaAPI.git
+[submodule "JDictionaryBravo/BigHugeLabsAPI"]
+	path = JDictionaryBravo/BigHugeLabsAPI
+	url = https://github.com/juanfmoyano/bhlLIB.git
+[submodule "JDictionaryBravo/YandexAPI"]
+	path = JDictionaryBravo/YandexAPI
+	url = https://github.com/LeandroAmigo/YandexService.git
