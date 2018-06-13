@@ -2,6 +2,8 @@ rootProject.name = 'DictionaryBravo'
 include ':Wikipedia'
 project (':Wikipedia').projectDir=new File('./WikipediaAPI/Wikipedia')
 
-include ':BigHugeLabsAPI'
+include ':BigHugeLabs'
+project (':BigHugeLabs').projectDir=new File('./BigHugeLabsAPI')
 
-include ':YandexAPI'
+include ':Yandex'
+project (':Yandex').projectDir=new File('./YandexAPI')

@@ -4,6 +4,8 @@ public class Article {
 
     private static final String prefix = "[*]";
 
+
+    //o tiene una lista de (meaning, source) o el modelo tiene una lista de article
     private String term;
     private String meaning;
     private Source source;
