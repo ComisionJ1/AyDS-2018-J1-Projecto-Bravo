@@ -1,1 +1,1 @@
-package ayds.dictionary.bravo.Model;public interface ArticleModelListener {    void didUpdateArticle();}
+package ayds.dictionary.bravo.Model;public interface ArticleModelListener {    void didUpdateArticles();}

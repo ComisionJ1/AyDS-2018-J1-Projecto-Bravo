@@ -6,6 +6,7 @@ import ayds.dictionary.bravo.Model.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 class ArticleViewImp implements ArticleView {
     private ArticleController articleController;
@@ -61,22 +62,29 @@ class ArticleViewImp implements ArticleView {
     private void initArticleModelListener() {
         articleModel.setListener(new ArticleModelListener() {
             @Override
-            public void didUpdateArticle() {
+            public void didUpdateArticles() {
                 updateMeaningTextPane();
             }
         });
     }
 
     private void updateMeaningTextPane() {
-        Article article = articleModel.getArticle();
+        List<Article> articles = articleModel.getArticles();
 
-        if (article.hasMeaning()) {
-            String meaningText = TextConverter.textToHtml(article.getTerm(), article.getMeaning());
-            meaningTextPane.setText(meaningText);
-            sourceLabel.setText(article.getSource().toString());
-        } else {
-            meaningTextPane.setText("No results.");
+        String result="";
+
+        for (Article article: articles) {
+            if (article.hasMeaning()) {
+                String meaningText = TextConverter.textToHtml(article.getTerm(), article.getMeaning());
+                result=result+meaningText+"<br> SOURCE: "+article.getSource().toString()+"<br><br>";
+                //meaningTextPane.setText(meaningText);
+                //sourceLabel.setText(article.getSource().toString());
+            } else {
+                //meaningTextPane.setText("No results.");
+                result=result+"No results.<br> SOURCE: "+article.getSource().toString()+"<br><br>";
+            }
         }
+        meaningTextPane.setText(result);
         enableSearch();
     }
 

@@ -1,12 +1,11 @@
 package ayds.dictionary.bravo.Model;
 
-import ayds.dictionary.RemoteSource.RemoteSource;
-import ayds.dictionary.RemoteSource.RemoteSourceModule;
 import ayds.dictionary.bravo.Model.ErrorHandler.ErrorHandler;
 import ayds.dictionary.bravo.Model.ErrorHandler.ErrorHandlerModule;
 import ayds.dictionary.bravo.Model.LocalSource.LocalSource;
 import ayds.dictionary.bravo.Model.LocalSource.LocalSourceModule;
-import ayds.dictionary.bravo.Model.RemoteSource.WikipediaRemoteSourceAdapter;
+import ayds.dictionary.bravo.Model.RemoteSource.RemoteSourceModule;
+import ayds.dictionary.bravo.Model.RemoteSource.RemoteSourceServices;
 
 public class ArticleModelModule {
 
@@ -14,11 +13,12 @@ public class ArticleModelModule {
     private ArticleModel articleModel;
 
     private ArticleModelModule() {
-        LocalSource localSource = LocalSourceModule.getInstance().getLocalSource();
-        RemoteSource remoteSource = RemoteSourceModule.getInstance().getRemoteSource();
-        WikipediaRemoteSourceAdapter wikipediaRemoteSourceAdapter = new WikipediaRemoteSourceAdapter(remoteSource);
         ErrorHandler errorHandler = ErrorHandlerModule.getInstance().getErrorHandler();
-        Repository repository = new Repository(localSource, wikipediaRemoteSourceAdapter, errorHandler);
+
+        LocalSource localSource = LocalSourceModule.getInstance().getLocalSource();
+        RemoteSourceServices remoteSourceServices = RemoteSourceModule.getInstance().getRemoteSourceServices();
+
+        Repository repository = new Repository(localSource, errorHandler, remoteSourceServices);
         articleModel = new ArticleModelImp(repository, errorHandler);
     }
 
