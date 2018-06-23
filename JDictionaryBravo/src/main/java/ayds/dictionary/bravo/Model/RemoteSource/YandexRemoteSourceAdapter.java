@@ -13,7 +13,6 @@ public class YandexRemoteSourceAdapter implements RemoteSource{
 
     public YandexRemoteSourceAdapter(YandexService yandexService) {
         this.yandexService = yandexService;
-        //vamos a tener un facotory que cree las instancias por cada una
     }
 
     @Override

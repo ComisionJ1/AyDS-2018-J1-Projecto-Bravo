@@ -15,7 +15,6 @@ class ArticleViewImp implements ArticleView {
     private JButton goButton;
     protected JPanel contentPane;
     private JTextPane meaningTextPane;
-    private JLabel sourceLabel;
     private JLabel loadingBarLabel;
 
     ArticleViewImp(ArticleController articleController, ArticleModel articleModel) {
@@ -77,10 +76,7 @@ class ArticleViewImp implements ArticleView {
             if (article.hasMeaning()) {
                 String meaningText = TextConverter.textToHtml(article.getTerm(), article.getMeaning());
                 result=result+meaningText+"<br> SOURCE: "+article.getSource().toString()+"<br><br>";
-                //meaningTextPane.setText(meaningText);
-                //sourceLabel.setText(article.getSource().toString());
             } else {
-                //meaningTextPane.setText("No results.");
                 result=result+"No results.<br> SOURCE: "+article.getSource().toString()+"<br><br>";
             }
         }

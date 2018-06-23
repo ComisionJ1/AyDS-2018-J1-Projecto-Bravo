@@ -13,7 +13,6 @@ public class WikipediaRemoteSourceAdapter implements RemoteSource {
 
     public WikipediaRemoteSourceAdapter(WikipediaService wikipediaService) {
         this.wikipediaService = wikipediaService;
-        //vamos a tener un facotory que cree las instancias por cada una
     }
 
     @Override

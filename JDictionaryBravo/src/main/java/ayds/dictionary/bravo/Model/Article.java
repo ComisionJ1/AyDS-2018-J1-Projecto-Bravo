@@ -4,8 +4,6 @@ public class Article {
 
     private static final String prefix = "[*]";
 
-
-    //o tiene una lista de (meaning, source) o el modelo tiene una lista de article
     private String term;
     private String meaning;
     private Source source;
@@ -22,6 +20,10 @@ public class Article {
 
     public String getMeaning() {
         return meaning;
+    }
+
+    public void setMeaning(String meaning) {
+        this.meaning = meaning;
     }
 
     public Source getSource() {

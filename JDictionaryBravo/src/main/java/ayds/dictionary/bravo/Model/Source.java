@@ -6,7 +6,6 @@ public enum Source {
     BIGHUGELABS,
     YANDEX
 
-
 }
 
 
