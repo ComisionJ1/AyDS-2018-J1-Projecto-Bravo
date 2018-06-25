@@ -13,5 +13,7 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 
     compile 'org.xerial:sqlite-jdbc:3.21.0'
+    compile project (':BigHugeLabs')
     compile project (':Wikipedia')
+    compile project (':Yandex')
 }
