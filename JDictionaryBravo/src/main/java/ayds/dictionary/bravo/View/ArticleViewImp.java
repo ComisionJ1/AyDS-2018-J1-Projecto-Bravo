@@ -36,14 +36,8 @@ class ArticleViewImp implements ArticleView {
         goButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
-                try {
-                    if (TermValidator.isTermValid(termTextField.getText())) {
-                        disableSearch();
-                        articleController.onEventUpdate(termTextField.getText().trim());
-                    }
-                } catch (UnallowedCharacterException e) {
-                    showError(e);
-                }
+                disableSearch();
+                articleController.onEventUpdate(termTextField.getText().trim());
             }
         });
     }

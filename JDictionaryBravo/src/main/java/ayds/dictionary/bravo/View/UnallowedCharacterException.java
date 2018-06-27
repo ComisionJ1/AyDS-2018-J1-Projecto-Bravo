@@ -1,1 +1,0 @@
-package ayds.dictionary.bravo.View;public class UnallowedCharacterException extends Exception {    public String getMessage() {        return "Sólo está permitido ingresar caracteres entre a-Z.";    }}

@@ -22,10 +22,6 @@ public class Article {
         return meaning;
     }
 
-    public void setMeaning(String meaning) {
-        this.meaning = meaning;
-    }
-
     public Source getSource() {
         return source;
     }
