@@ -69,11 +69,13 @@ class ArticleViewImp implements ArticleView {
         for (Article article: articles) {
             if (article.hasMeaning()) {
                 String meaningText = TextConverter.textToHtml(article.getTerm(), article.getMeaning());
-                result=result+meaningText+"<br> SOURCE: "+article.getSource().toString()+"<br><br>";
+                result = result + " <b> <h3 style=\"background-color:#00FA9A;\">" + article.getSource().toString() + " : </h3> </b>" + meaningText + " <br><br>";
             } else {
-                result=result+"No results.<br> SOURCE: "+article.getSource().toString()+"<br><br>";
+                result = result + " <b><h3 style=\"background-color:#F08080;\">" + article.getSource().toString() + ": </h3> </b> No results. <br><br>";
             }
+
         }
+
         meaningTextPane.setText(result);
         enableSearch();
     }
