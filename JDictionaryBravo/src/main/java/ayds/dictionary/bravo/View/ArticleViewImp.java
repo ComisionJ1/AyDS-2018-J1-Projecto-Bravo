@@ -6,6 +6,7 @@ import ayds.dictionary.bravo.Model.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 class ArticleViewImp implements ArticleView {
     private ArticleController articleController;
@@ -14,7 +15,6 @@ class ArticleViewImp implements ArticleView {
     private JButton goButton;
     protected JPanel contentPane;
     private JTextPane meaningTextPane;
-    private JLabel sourceLabel;
     private JLabel loadingBarLabel;
 
     ArticleViewImp(ArticleController articleController, ArticleModel articleModel) {
@@ -36,14 +36,8 @@ class ArticleViewImp implements ArticleView {
         goButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
-                try {
-                    if (TermValidator.isTermValid(termTextField.getText())) {
-                        disableSearch();
-                        articleController.onEventUpdate(termTextField.getText().trim());
-                    }
-                } catch (UnallowedCharacterException e) {
-                    showError(e);
-                }
+                disableSearch();
+                articleController.onEventUpdate(termTextField.getText().trim());
             }
         });
     }
@@ -61,22 +55,31 @@ class ArticleViewImp implements ArticleView {
     private void initArticleModelListener() {
         articleModel.setListener(new ArticleModelListener() {
             @Override
-            public void didUpdateArticle() {
+            public void didUpdateArticles() {
                 updateMeaningTextPane();
             }
         });
     }
 
     private void updateMeaningTextPane() {
-        Article article = articleModel.getArticle();
+        List<Article> articles = articleModel.getArticles();
 
-        if (article.hasMeaning()) {
-            String meaningText = TextConverter.textToHtml(article.getTerm(), article.getMeaning());
-            meaningTextPane.setText(meaningText);
-            sourceLabel.setText(article.getSource().toString());
-        } else {
-            meaningTextPane.setText("No results.");
+        String result="";
+
+        for (Article article: articles) {
+            String meaningText;
+            String source;
+            if (article.hasMeaning()) {
+                meaningText = TextConverter.textToHtml(article.getTerm(), article.getMeaning());
+                source = TextConverter.setSuccessSource(article.getSource().toString());
+            } else {
+                meaningText = "No Results.";
+                source = TextConverter.setNoResultSource(article.getSource().toString());
+            }
+            result = result + source + meaningText + " <br><br>";
         }
+
+        meaningTextPane.setText(result);
         enableSearch();
     }
 

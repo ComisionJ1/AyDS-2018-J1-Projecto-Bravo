@@ -21,7 +21,7 @@ class ArticleControllerImp implements ArticleController {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                articleModel.searchArticle(term);
+                articleModel.searchArticles(term);
             }
         }).start();
     }
