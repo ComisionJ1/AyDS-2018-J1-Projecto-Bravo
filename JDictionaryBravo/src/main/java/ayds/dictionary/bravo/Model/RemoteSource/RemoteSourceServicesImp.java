@@ -6,7 +6,7 @@ import ayds.dictionary.bravo.Model.Source;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RemoteSourceServicesImp implements RemoteSourceServices {
+class RemoteSourceServicesImp implements RemoteSourceServices {
 
     private final RemoteSourceFactory serviceFactory;
 

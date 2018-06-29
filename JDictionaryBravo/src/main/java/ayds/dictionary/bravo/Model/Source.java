@@ -5,7 +5,6 @@ public enum Source {
     WIKIPEDIA,
     BIGHUGELABS,
     YANDEX
-
 }
 
 

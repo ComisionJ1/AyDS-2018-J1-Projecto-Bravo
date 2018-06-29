@@ -7,11 +7,11 @@ import ayds.dictionary.bravo.Model.Source;
 
 import java.io.IOException;
 
-public class WikipediaRemoteSourceAdapter implements RemoteSource {
+class WikipediaRemoteSourceAdapter implements RemoteSource {
 
     private WikipediaService wikipediaService;
 
-    public WikipediaRemoteSourceAdapter(WikipediaService wikipediaService) {
+    WikipediaRemoteSourceAdapter(WikipediaService wikipediaService) {
         this.wikipediaService = wikipediaService;
     }
 

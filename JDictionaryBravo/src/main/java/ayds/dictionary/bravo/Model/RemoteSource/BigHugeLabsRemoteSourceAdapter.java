@@ -5,11 +5,11 @@ import ayds.dictionary.bravo.Model.EmptyArticle;
 import ayds.dictionary.bravo.Model.Source;
 import ayds.dictionary.delta.services.BigHugeLabsService;
 
-public class BigHugeLabsRemoteSourceAdapter implements RemoteSource {
+class BigHugeLabsRemoteSourceAdapter implements RemoteSource {
 
     private BigHugeLabsService bigHugeLabsService;
 
-    public BigHugeLabsRemoteSourceAdapter(BigHugeLabsService bigHugeLabsService) {
+    BigHugeLabsRemoteSourceAdapter(BigHugeLabsService bigHugeLabsService) {
         this.bigHugeLabsService = bigHugeLabsService;
     }
 

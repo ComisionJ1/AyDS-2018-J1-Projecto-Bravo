@@ -8,7 +8,7 @@ import ayds.dictionary.foxtrot.services.YandexService;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RemoteSourceFactoryImp implements RemoteSourceFactory {
+class RemoteSourceFactoryImp implements RemoteSourceFactory {
 
     private Map<Source,RemoteSource> services;
 

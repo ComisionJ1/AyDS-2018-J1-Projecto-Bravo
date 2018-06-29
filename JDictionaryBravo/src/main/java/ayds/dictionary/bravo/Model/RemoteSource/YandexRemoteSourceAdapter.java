@@ -7,11 +7,11 @@ import ayds.dictionary.foxtrot.services.YandexService;
 
 import java.io.IOException;
 
-public class YandexRemoteSourceAdapter implements RemoteSource{
+class YandexRemoteSourceAdapter implements RemoteSource{
 
     private YandexService yandexService;
 
-    public YandexRemoteSourceAdapter(YandexService yandexService) {
+    YandexRemoteSourceAdapter(YandexService yandexService) {
         this.yandexService = yandexService;
     }
 
